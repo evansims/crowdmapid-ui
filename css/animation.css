@@ -1,0 +1,92 @@
+/*
+Syntax error: Undefined variable: "$color-background".
+        on line 12 of sass/animation.scss
+
+7: 	}
+8: }
+9: 
+10: @-webkit-keyframes text_fadein {
+11: 	from {
+12: 		color: $color-background;
+13: 	}
+14: 	to {
+15: 		color: $color-text-faded;
+16: 	}
+17: }
+
+Backtrace:
+sass/animation.scss:12
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/script/variable.rb:49:in `_perform'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/script/node.rb:40:in `perform'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:216:in `visit_prop'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:238:in `visit_rule'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:286:in `visit_directive'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:27:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:39:in `with_environment'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:26:in `visit_children'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:47:in `visit_root'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:18:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/tree/root_node.rb:20:in `render'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/engine.rb:299:in `_render'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/engine.rb:246:in `render'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:340:in `update_stylesheet'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:202:in `update_stylesheets'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:200:in `each'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:200:in `update_stylesheets'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:298
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:86:in `call'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:86:in `on_change'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:95
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:55:in `call'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:55:in `poll'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `start'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `initialize'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `new'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/adapters/polling.rb:31:in `start'
+/var/lib/gems/1.8/gems/sass-3.1.18/vendor/listen/lib/listen/multi_listener.rb:44:in `start'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin/compiler.rb:306:in `watch'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin.rb:107:in `send'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:431:in `watch_or_update'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:302:in `process_result'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:41:in `parse'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
+/var/lib/gems/1.8/gems/sass-3.1.18/bin/sass:8
+/var/lib/gems/1.8/bin/sass:19:in `load'
+/var/lib/gems/1.8/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$color-background\".\A         on line 12 of sass/animation.scss\A \A 7: 	}\A 8: }\A 9: \A 10: @-webkit-keyframes text_fadein {\A 11: 	from {\A 12: 		color: $color-background;\A 13: 	}\A 14: 	to {\A 15: 		color: $color-text-faded;\A 16: 	}\A 17: }"; }

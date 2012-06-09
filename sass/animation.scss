@@ -1,0 +1,340 @@
+@-webkit-keyframes fieldshift {
+	from {
+		background-position: 5% 5%
+	}
+	to {
+		background-position: -1600% -1300%
+	}
+}
+
+@-webkit-keyframes text_fadein {
+	from {
+		color: $color-background;
+	}
+	to {
+		color: $color-text-faded;
+	}
+}
+
+@-webkit-keyframes jiggle {
+	0% {
+		-webkit-transform: rotate(-1deg);
+	}
+	50% {
+		-webkit-transform: rotate(1deg);
+	}
+	100% {
+		-webkit-transform: rotate(-1deg);
+	}
+}
+
+@-webkit-keyframes throb_n_jiggle {
+	0% {
+		-webkit-transform: rotate(-1deg) scale(1);
+	}
+	25% {
+		-webkit-transform: rotate(0deg) scale(1.1);
+	}
+	50% {
+		-webkit-transform: rotate(1deg) scale(1);
+	}
+	75% {
+		-webkit-transform: rotate(0deg) scale(1.1);
+	}
+	100% {
+		-webkit-transform: rotate(-1deg) scale(1);
+	}
+}
+
+@-webkit-keyframes do_a_barrel_roll {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	50% {
+		-webkit-transform: rotate(180deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes fadeIn {
+  /* line 215, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.1) translateX(10px);
+  }
+}
+
+@-webkit-keyframes intro {
+  /* line 223, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+
+  /* line 227, ../sass/style.scss */
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes movePicture {
+  /* line 236, ../sass/style.scss */
+  100% {
+    -webkit-transform: scale(1.05) translateY(-150px) translateX(0px);
+  }
+}
+
+@-moz-keyframes movePicture {
+  /* line 243, ../sass/style.scss */
+  100% {
+    -moz-transform: scale(1.05) translateY(-150px) translateX(0px);
+  }
+}
+
+@-o-keyframes movePicture {
+  /* line 250, ../sass/style.scss */
+  100% {
+    -o-transform: scale(1.05) translateY(-150px) translateX(0px);
+  }
+}
+
+@-ms-keyframes movePicture {
+  /* line 257, ../sass/style.scss */
+  100% {
+    -ms-transform: scale(1.05) translateY(-150px) translateX(0px);
+  }
+}
+
+@keyframes movePicture {
+  /* line 264, ../sass/style.scss */
+  100% {
+    transform: scale(1.05) translateY(-150px) translateX(0px);
+  }
+}
+
+@-webkit-keyframes fadeOutDown {
+  /* line 272, ../sass/style.scss */
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+
+  /* line 276, ../sass/style.scss */
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+}
+
+@-moz-keyframes fadeOutDown {
+  /* line 283, ../sass/style.scss */
+  0% {
+    opacity: 1;
+    -moz-transform: translateY(0);
+  }
+
+  /* line 287, ../sass/style.scss */
+  100% {
+    opacity: 0;
+    -moz-transform: translateY(20px);
+  }
+}
+
+@-o-keyframes fadeOutDown {
+  /* line 294, ../sass/style.scss */
+  0% {
+    opacity: 1;
+    -o-transform: translateY(0);
+  }
+
+  /* line 298, ../sass/style.scss */
+  100% {
+    opacity: 0;
+    -o-transform: translateY(20px);
+  }
+}
+
+@-ms-keyframes fadeOutDown {
+  /* line 305, ../sass/style.scss */
+  0% {
+    opacity: 1;
+    -ms-transform: translateY(0);
+  }
+
+  /* line 309, ../sass/style.scss */
+  100% {
+    opacity: 0;
+    -ms-transform: translateY(20px);
+  }
+}
+
+@keyframes fadeOutDown {
+  /* line 316, ../sass/style.scss */
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* line 320, ../sass/style.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  /* line 329, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.1) translateX(10px);
+  }
+}
+
+@-moz-keyframes scaleIn {
+  /* line 339, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    -moz-transform: scale(1.1) translateX(10px);
+  }
+}
+
+@-o-keyframes scaleIn {
+  /* line 348, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    -o-transform: scale(1.1) translateX(10px);
+  }
+}
+
+@-ms-keyframes scaleIn {
+  /* line 358, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    -ms-transform: scale(1.1) translateX(10px);
+  }
+}
+
+@keyframes scaleIn {
+  /* line 367, ../sass/style.scss */
+  0% {
+    opacity: 0;
+    transform: scale(1.1) translateX(10px);
+  }
+}
+
+@-webkit-keyframes fade-intro-in {
+  /* line 380, ../sass/style.scss */
+  0% {
+    opacity: .0;
+    -webkit-transform: scale(0.9) translate3d(0, -40px, 0);
+  }
+
+  /* line 385, ../sass/style.scss */
+  100% {
+    opacity: 1.0;
+    -webkit-transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@-moz-keyframes fade-intro-in {
+  /* line 394, ../sass/style.scss */
+  0% {
+    opacity: .0;
+    -moz-transform: scale(0.9) translate3d(0, -40px, 0);
+  }
+
+  /* line 399, ../sass/style.scss */
+  100% {
+    opacity: 1.0;
+    -moz-transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@-o-keyframes fade-intro-in {
+  /* line 408, ../sass/style.scss */
+  0% {
+    opacity: .0;
+    -o-transform: scale(0.9) translate3d(0, -40px, 0);
+  }
+
+  /* line 413, ../sass/style.scss */
+  100% {
+    opacity: 1.0;
+    -o-transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@-ms-keyframes fade-intro-in {
+  /* line 422, ../sass/style.scss */
+  0% {
+    opacity: .0;
+    -ms-transform: scale(0.9) translate3d(0, -40px, 0);
+  }
+
+  /* line 427, ../sass/style.scss */
+  100% {
+    opacity: 1.0;
+    -ms-transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-intro-in {
+  /* line 436, ../sass/style.scss */
+  0% {
+    opacity: .0;
+    transform: scale(0.9) translate3d(0, -40px, 0);
+  }
+
+  /* line 441, ../sass/style.scss */
+  100% {
+    opacity: 1.0;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes human {
+  /* line 449, ../sass/style.scss */
+  0%,100% {
+    -webkit-transform: translateY(10px) translateX(0px);
+  }
+
+  /* line 452, ../sass/style.scss */
+  25% {
+    -webkit-transform: translateY(-8px) translateX(0px);
+  }
+
+  /* line 455, ../sass/style.scss */
+  50% {
+    -webkit-transform: translateY(7px) translateX(0px);
+  }
+
+  /* line 458, ../sass/style.scss */
+  75% {
+    -webkit-transform: translateY(-8px) translateX(0px);
+  }
+}
+
+@keyframes human {
+  /* line 465, ../sass/style.scss */
+  0%,100% {
+    transform: translateY(10px) translateX(0px);
+  }
+
+  /* line 468, ../sass/style.scss */
+  25% {
+    transform: translateY(-8px) translateX(0px);
+  }
+
+  /* line 471, ../sass/style.scss */
+  50% {
+    transform: translateY(7px) translateX(0px);
+  }
+
+  /* line 474, ../sass/style.scss */
+  75% {
+    transform: translateY(-8px) translateX(0px);
+  }
+}
