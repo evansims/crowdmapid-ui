@@ -3,19 +3,20 @@
 	define('SAFELY_LOADED', TRUE);
 	ob_start();
 
+	require('app/inc.config.php');
+
 	$site = array(
-		'title' => 'CrowdmapID',
-		'tagline' => 'Create or manage your CrowdmapID account.',
-		'url' => 'http://random.local'
+		'title'   => CFG_SITE_NAME,
+		'tagline' => CFG_SITE_DESCRIPTION,
+		'url'     => CFG_SITE_URL
 	);
 
 	$page = array(
-		'title' => 'Account Management',
-		'id' => NULL,
+		'title'  => 'Account Management',
+		'id'     => NULL,
 		'errors' => array()
 	);
 
-	require('app/inc.config.php');
 	require('app/inc.helpers.php');
 	require('app/class.views.php');
 	require('app/class.localize.php');

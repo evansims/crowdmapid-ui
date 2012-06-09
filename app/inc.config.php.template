@@ -1,0 +1,63 @@
+<?php
+
+	define('CFG_API_KEY', '');
+	define('CFG_API_ENDPOINT', '');
+
+	define('CFG_SITE_NAME', '');
+	define('CFG_SITE_URL', '');
+	define('CFG_SITE_DESCRIPTION', '');
+
+	$secretQuestions = array(
+		"What was your childhood nickname?",
+		"In what city did you meet your spouse/significant other?",
+		"What is the name of your favorite childhood friend?",
+		"What street did you live on in third grade?",
+		"What is your oldest sibling’s birthday month and year? (e.g., January 1900)",
+		"What is the middle name of your oldest child?",
+		"What is your oldest sibling's middle name?",
+		"What school did you attend for sixth grade?",
+		"What was your childhood phone number including area code? (e.g., 000-000-0000)",
+		"What is your oldest cousin's first and last name?",
+		"What was the name of your first stuffed animal?",
+		"In what city or town did your mother and father meet?",
+		"Where were you when you had your first kiss?",
+		"What is the first name of the boy or girl that you first kissed?",
+		"What was the last name of your third grade teacher?",
+		"In what city does your nearest sibling live?",
+		"What is your oldest brother’s birthday month and year? (e.g., January 1900)",
+		"What is your maternal grandmother's maiden name?",
+		"In what city or town was your first job?",
+		"What is the name of the place your wedding reception was held?",
+		"What is the name of a college you applied to but didn't attend?",
+		"What was the name of your elementary / primary school?",
+		"What is the name of the company of your first job?",
+		"What was your favorite place to visit as a child?",
+		"What is your spouse's mother's maiden name?",
+		"What is the country of your ultimate dream vacation?",
+		"What is the name of your favorite childhood teacher?",
+		"To what city did you go on your honeymoon?",
+		"What time of the day were you born?",
+		"What was your dream job as a child?",
+		"What is the street number of the house you grew up in?",
+		"What is the license plate (registration) of your dad's first car?",
+		"Who was your childhood hero?",
+		"What was the first concert you attended?",
+		"What are the last 5 digits of your credit card?",
+		"What are the last 5 of your Social Security number?",
+		"What is your current car registration number?",
+		"What are the last 5 digits of your driver's license number?",
+		"What month and day is your anniversary? (e.g., January 2)",
+		"What is your grandmother's first name?",
+		"What is your mother's middle name?",
+		"What is the last name of your favorite high school teacher?",
+		"What was the make and model of your first car?",
+		"Where did you vacation last year?",
+		"What is the name of your grandmother's dog?",
+		"What is the name, breed, and color of current pet?",
+		"What is your preferred musical genre?",
+		"In what city and country do you want to retire?",
+		"What is the name of the first undergraduate college you attended?",
+		"What was your high school mascot?",
+		"What year did you graduate from High School?",
+		"What is the name of the first school you attended?"
+		);
