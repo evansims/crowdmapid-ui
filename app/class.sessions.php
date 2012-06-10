@@ -21,14 +21,18 @@
 				if(strlen(Sessions::$data['user_id']) == 128 && strlen(Sessions::$data['session_id']) == 64) {
 					$session = Service::Session(Sessions::$data['user_id'], Sessions::$data['session_id']);
 
-					if($session->success) {
-						Service::User(Sessions::$data['user_id']);
+					if($session) {
+						if($session->success) {
+							Service::User(Sessions::$data['user_id']);
 
-						Sessions::SetCookie();
-						Sessions::$loggedin = true;
-						return true;
+							Sessions::SetCookie();
+							Sessions::$loggedin = true;
+							return true;
+						} else {
+							$page['errors']['login_error'] = $session->error;
+						}
 					} else {
-						$page['errors']['login_error'] = $session->error;
+						$page['errors']['login_error'] = 'The service is currently unavailable. Please try again later.';
 					}
 				}
 			}
@@ -36,17 +40,21 @@
 			if (isset($_POST['email']) && isset($_POST['password'])) {
 				$auth = Service::Login($_POST['email'], $_POST['password']);
 
-				if($auth->success) {
-					Sessions::$data['user_id'] = $auth->user_id;
-					Sessions::$data['session_id'] = $auth->session_id;
+				if($auth) {
+					if($auth->success) {
+						Sessions::$data['user_id'] = $auth->user_id;
+						Sessions::$data['session_id'] = $auth->session_id;
 
-					Service::User(Sessions::$data['user_id']);
+						Service::User(Sessions::$data['user_id']);
 
-					Sessions::SetCookie();
-					Sessions::$loggedin = true;
-					return true;
+						Sessions::SetCookie();
+						Sessions::$loggedin = true;
+						return true;
+					} else {
+						$page['errors']['login_error'] = $auth->error;
+					}
 				} else {
-					$page['errors']['login_error'] = $auth->error;
+					$page['errors']['login_error'] = 'The service is currently unavailable. Please try again later.';
 				}
 			}
 

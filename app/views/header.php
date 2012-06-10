@@ -71,17 +71,23 @@
 
 						<li class="grouped <?php if(Breadcrumbs::Crumb(0) == 'accounts') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/accounts">Accounts</a></li>
 						<li class="<?php if(Breadcrumbs::Crumb(0) == 'security') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/security">Security</a></li>
+
+						<?php /*
 						<li class="<?php if(Breadcrumbs::Crumb(0) == 'badges') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/badges">Badges</a></li>
 						<li class="<?php if(Breadcrumbs::Crumb(0) == 'privacy') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/privacy">Privacy</a></li>
 						<li class="<?php if(Breadcrumbs::Crumb(0) == 'sessions') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/sessions">Sessions</a></li>
+						 */ ?>
 
 					<?php if(isset($user->admin)): ?>
 						<li class="grouped <?php if(Breadcrumbs::Crumb(0) == 'admin') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/admin">Administrative</a></li>
 						<li><a href="<?php echo $site['url']; ?>/service">Service</a></li>
 					<?php endif; ?>
 
+						<?php /*
 						<li class="grouped"><a href="<?php echo $site['url']; ?>/support">Support</a></li>
-						<li><a href="<?php echo $site['url']; ?>/logout">Log Out</a></li>
+						 */ ?>
+
+						<li class="grouped"><a href="<?php echo $site['url']; ?>/logout">Log Out</a></li>
 					</ul>
 				</nav>
 				<?php else: ?>

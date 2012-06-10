@@ -51,12 +51,23 @@
 		if($interval->y) {
 			if($interval->y) $diff .= $interval->y . ' years, ';
 			if($interval->m) $diff .= $interval->m . ' months, ';
+		} elseif($interval->m) {
+			if($interval->m) $diff .= $interval->m . ' months, ';
 			if($interval->d) $diff .= $interval->d . ' days, ';
+		} elseif($interval->d >= 7) {
+			$fraction = $interval->d / 7;
+			$days = $interval->d - (round($fraction) * 7);
+
+			$diff .= round($fraction) . ' weeks, ';
+			if($days && $days >= 1) $diff .= $days . ' days, ';
 		} else {
+			if($interval->d) $diff .= $interval->d . ' days, ';
 			if($interval->h) $diff .= $interval->h . ' hours, ';
 			if($interval->i) $diff .= $interval->i . ' minutes, ';
 			if($interval->s) $diff .= $interval->s . ' seconds, ';
 		}
+
+		if(strpos($diff, '1 weeks,') !== false) $diff = str_replace('1 weeks,', '1 week,', $diff);
 
 		if($interval->y == 1) $diff = str_replace('years', 'year', $diff);
 		if($interval->m == 1) $diff = str_replace('months', 'month', $diff);

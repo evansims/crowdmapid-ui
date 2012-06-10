@@ -31,7 +31,7 @@
 							</li>
 							<li>
 								<span class="title">Account Age</span>
-								<span class="status">Your account was created <?php echo($accountRegistered); ?>.</span>
+								<span class="status">Your account was created <strong><?php echo($accountRegistered); ?>.</strong></span>
 								<span class="links"></span>
 							</li>
 							<li>

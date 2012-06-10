@@ -54,8 +54,32 @@
 			return Service::apiCall("GET", "/user/:user_id/password/", array('password' => $password));
 		}
 
-		public static function updatePassword($password) {
+		public static function changePassword($password) {
 			return Service::apiCall("POST", "/user/:user_id/password/", array('password' => $password));
+		}
+
+		public static function getChallengeQuestion() {
+			return Service::apiCall("GET", "/user/:user_id/challenge/question/");
+		}
+
+		public static function setChallengeQuestion($question) {
+			return Service::apiCall("PUT", "/user/:user_id/challenge/question/", array('question' => $question));
+		}
+
+		public static function setChallengeAnswer($answer) {
+			return Service::apiCall("PUT", "/user/:user_id/challenge/answer/", array('answer' => $answer));
+		}
+
+		public static function getYubikeyPair() {
+			return Service::apiCall("GET", "/user/:user_id/security/yubikey/");
+		}
+
+		public static function setYubikey($otp) {
+			return Service::apiCall("POST", "/user/:user_id/security/yubikey/", array('otp' => $otp));
+		}
+
+		public static function deleteYubikey() {
+			return Service::apiCall("DELETE", "/user/:user_id/security/yubikey/");
 		}
 
 		public static function Admin() {
