@@ -41,6 +41,41 @@ require ["jquery"], ->
 
 			return false
 
+	if account_register = $("form#account_register")
+		require ["password_strength"], ->
+
+			$(account_register).find('input#password').on 'keyup', ->
+				password_strength = $("p#password_strength");
+				password_input = $('input#password');
+
+				if password_input.val().length
+
+					if password_input.val().length < 5
+						$(password_strength).css('color', 'red').html('Your password is too short. Please use at least 5 characters.');
+
+					else if password_input.val().length > 128
+						$(password_strength).css('color', 'red').html('Your password is too long. Please use no more than 128 characters.');
+
+					else
+						strength = PasswordStrength.test("", password_input.val());
+
+						if strength.isStrong()
+							$(password_strength).css('color', 'green').html('Your password is strong.');
+
+						else if strength.isGood()
+							$(password_strength).css('color', 'orange').html('Your password is fairly weak.');
+
+						else if strength.isWeak()
+							$(password_strength).css('color', 'red').html('Your password is dangerously weak.');
+
+						else
+							$(password_strength).css('color', 'red').html('Your password is not acceptable.');
+
+					$('div#password_strength_container:hidden').slideDown "slow", ->
+						$(password_strength).fadeIn("slow");
+
+				return true
+
 	if update_password = $("form#password")
 		require ["password_strength"], ->
 

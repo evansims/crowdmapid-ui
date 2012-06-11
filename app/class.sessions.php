@@ -62,7 +62,7 @@
 			Sessions::$loggedin = false;
 
 			$p = Breadcrumbs::Crumb(0);
-			if($p != 'login' && $p != 'logout' && $p != 'register' && $p != 'reset') {
+			if($p != 'login' && $p != 'logout' && $p != 'register' && $p != 'recovery') {
 				Views::Redirect('login');
 			}
 

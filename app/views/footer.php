@@ -2,7 +2,7 @@
 					</section>
 
 					<footer>
-						<p><a href="#">Crowdmap</a> is powered by <a href="#">CrowdmapID</a>, an <a href="#">open source</a> identity management system from <a href="#">Ushahidi</a>.</p>
+						<p><a href="https://github.com/ushahidi/crowdmapid-server">CrowdmapID</a> is an <a href="https://github.com/ushahidi/crowdmapid-server">open source</a> identity management system from <a href="http://ushahidi.com">Ushahidi</a>.</p>
 					</footer>
 
 				</article>

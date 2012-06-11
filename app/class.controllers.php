@@ -276,6 +276,112 @@
 			Cleanup();
 		}
 
+		public static function Register() {
+			$register_message = null;
+			$register_error   = null;
+
+			if(isset($_POST['activity'])) {
+				$email = (isset($_POST['email']) ? trim(strip_tags($_POST['email'])) : null);
+				$password = (isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : null);
+
+				if($email && $password) {
+					if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+						if(strlen($password) > 5 && strlen($password) < 128) {
+							if(strtoupper($password) !== $password) {
+								if($exists = Service::User($email)) {
+									if(!$exists->success) {
+										if($registered = Service::Register($email, $password)) {
+											if($registered->success) {
+												Sessions::ResetCookie();
+												Sessions::storagePut('login_message', 'Your account was registered successfully. Please sign in.', true);
+												Views::Redirect('login');
+											} else {
+												$register_error = $registered->error;
+											}
+										} else {
+											$register_error = 'We encountered a technical problem. Please try again later.';
+										}
+									} else {
+										$register_error = 'An account with that email address has already been registered.';
+									}
+								} else {
+									$register_error = 'We encountered a technical problem. Please try again later.';
+								}
+							} else {
+								$register_error = 'Your password appears to be fully capitalized. Do you have your caps lock on?';
+							}
+						} else {
+							$register_error = 'Your password must be between 5 and 128 characters in length.';
+						}
+					} else {
+						$register_error = 'That does not appear to be a valid email address.';
+					}
+				} else {
+					$register_error = 'You must provide an email address and password.';
+				}
+			}
+
+			Views::Render("register", array(
+				'register_message' => $register_message,
+				'register_error'   => $register_error,
+			));
+			Cleanup();
+		}
+
+		public static function Recovery() {
+			$recovery_message = null;
+			$recovery_error   = null;
+			$user             = null;
+
+			if(isset($_POST['activity'])) {
+				$email = (isset($_POST['email']) ? trim(strip_tags($_POST['email'])) : null);
+				if($email && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+					$user = Service::User($email);
+
+					if($user && isset($user->success) && $user->success) {
+						$user = $user->user;
+						$challenge_question = $user->password_challenge_question;
+
+						if($_POST['activity'] == 'reset_mode') {
+							if($_POST['mode'] == 'reset_password') {
+								Views::Render("recovery_password", array(
+									'user'             => $user,
+									'recovery_message' => $recovery_message,
+									'recovery_error'   => $recovery_error
+								));
+								Cleanup();
+							} elseif($_POST['mode'] == 'reset_question') {
+
+							} elseif($_POST['mode'] == 'reset_yubikey') {
+
+							}
+						} elseif($_POST['activity'] == 'reset_password') {
+
+						} elseif($_POST['activity'] == 'reset_question') {
+
+						} elseif($_POST['activity'] == 'reset_yubikey') {
+
+						}
+					} else {
+						if(isset($user->error)) {
+							$recovery_error = $user->error;
+						} else {
+							$recovery_error = 'We encountered a technical problem. Please try again later.';
+						}
+					}
+				} else {
+					$recovery_error = 'You must provide a valid email address associated with your account.';
+				}
+			}
+
+			Views::Render("recovery", array(
+				'user'             => $user,
+				'recovery_message' => $recovery_message,
+				'recovery_error'   => $recovery_error
+			));
+			Cleanup();
+		}
+
 		public static function Login() {
 			Views::Render("login");
 			Cleanup();

@@ -21,7 +21,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="<?php echo $site['url']; ?>/CSS/default.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $site['url']; ?>/css/default.css" />
 
 		<script type="text/javascript" data-main="scripts/core" src="<?php echo $site['url']; ?>/scripts/require.js"></script>
 
@@ -45,7 +45,7 @@
 
 		<header class="application">
 			<div class="position">
-				<h1><a href="/"><span>Crowdmap</span></a></h1>
+				<h1><a href="/"><span><?php echo(CFG_SITE_NAME); ?></span></a></h1>
 
 				<?php if(Sessions::$loggedin): ?>
 				<div class="user-badge">
@@ -93,8 +93,9 @@
 				<?php else: ?>
 				<nav class="application">
 					<ul>
-						<li class="active"><a href="<?php echo $site['url']; ?>/login">Sign In</a></li>
-						<li><a href="<?php echo $site['url']; ?>/register">Register</a></li>
+						<li class="<?php if(Breadcrumbs::Crumb(0) == 'login') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/login">Log In</a></li>
+						<li class="<?php if(Breadcrumbs::Crumb(0) == 'register') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/register">Register</a></li>
+						<li class="grouped <?php if(Breadcrumbs::Crumb(0) == 'recovery') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/recovery">Account Recovery</a></li>
 					</ul>
 				</nav>
 				<?php endif; ?>

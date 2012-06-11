@@ -1,4 +1,8 @@
 
+						<p><?php echo(CFG_SITE_LONG_DESCRIPTION); ?></p>
+
+						<h3>Log In</h3>
+
 						<?php if(Sessions::storageGet('login_message', true)): ?>
 						<p class="info_message"><?php echo(Sessions::storageGet('login_message', true)); ?></p>
 						<?php endif; ?>
@@ -22,8 +26,8 @@
 							<div class="form-row">
 								<label class="filler">&nbsp;</label>
 								<div class="buttons">
-									<input type="submit" class="submit" value="Sign In" />
-									<input type="button" class="button" value="Recover Password" />
+									<input type="submit" class="submit" value="Log In" />
+									<input type="button" class="button" value="Recover Password" onclick="window.location = '<?php echo($site['url']); ?>/recovery'; return false" />
 								</div>
 							</div>
 

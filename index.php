@@ -38,9 +38,17 @@
 			Controllers::Login();
 		}
 	} elseif($p == 'register') {
-		//Controllers::Register();
-	} elseif($p == 'reset') {
-		//Controllers::Reset();
+		if(Sessions::$loggedin) {
+			Views::Redirect('home');
+		} else {
+			Controllers::Register();
+		}
+	/*} elseif($p == 'recovery') {
+		if(Sessions::$loggedin) {
+			Views::Redirect('home');
+		} else {
+			Controllers::Recovery();
+		}*/
 	} else {
 
 		if($p == 'logout') {

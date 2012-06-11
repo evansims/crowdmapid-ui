@@ -11,7 +11,7 @@
 		}
 
 		public static function Register($email, $password) {
-
+			return Service::apiCall("POST", "/user/{$user_id}", array('email' => $email, 'password' => $password));
 		}
 
 		public static function Login($user_id, $password) {
@@ -22,10 +22,12 @@
 			return Service::apiCall("GET", "/user/{$user_id}/sessions/{$session_id}");
 		}
 
-		public static function User($user_id) {
+		public static function User($user_id, $just_return = false) {
 			$user = Service::apiCall("GET", "/user/{$user_id}");
 			if($user && isset($user->user)) {
-				Service::$user = $user->user;
+				if(!$just_return) {
+					Service::$user = $user->user;
+				}
 			}
 			return $user;
 		}
