@@ -21,7 +21,7 @@
 
 							<div class="form-row">
 								<label for="password">Password:</label>
-								<div class="text"><input type="password" id="password" name="password" value="password" /></div>
+								<div class="text"><input type="password" id="password" name="password" /></div>
 							</div>
 
 							<div id="password_strength_container" class="form-row" style="display: none">
