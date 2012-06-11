@@ -6,6 +6,7 @@
 	define('CFG_SITE_NAME', '');
 	define('CFG_SITE_URL', '');
 	define('CFG_SITE_DESCRIPTION', '');
+	define('CFG_SITE_LONG_DESCRIPTION', '');
 
 	$secretQuestions = array(
 		"What was your childhood nickname?",
