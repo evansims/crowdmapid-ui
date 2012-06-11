@@ -20,7 +20,7 @@
 
 							<div class="form-row">
 								<label for="password">Password:</label>
-								<div class="text"><input type="password" id="password" name="password" value="password" /></div>
+								<div class="text"><input type="password" id="password" name="password" /></div>
 							</div>
 
 							<div class="form-row">
