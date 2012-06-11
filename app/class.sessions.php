@@ -75,11 +75,9 @@
 			if($expire) $expire = time() + SESSION_COOKIE_EXPIRE_SECONDS;
 
 			$secure = false;
-			if(isset($_SERVER['HTTPS'])) $secure = true;
+			if(isset($_SERVER['HTTPS']) && strlen($_SERVER['HTTPS'])) $secure = true;
 
-			$server = '.';
-			if(isset($_SERVER['SERVER_NAME'])) $server .= $_SERVER['SERVER_NAME'];
-			elseif(isset($_SERVER['HTTP_HOST'])) $server .= $_SERVER['HTTP_HOST'];
+			$server = $_SERVER['HTTP_HOST'];
 
 			setcookie('cmid_user_id', Encrypt(Sessions::$data['user_id'], $_SERVER['HTTP_USER_AGENT']), $expire, '/',  $server, $secure, true);
 			setcookie('cmid_session_id', Encrypt(Sessions::$data['session_id'], $_SERVER['HTTP_USER_AGENT']), $expire, '/', $server, $secure, true);
@@ -88,11 +86,9 @@
 
 		static public function ResetCookie() {
 			$secure = false;
-			if(isset($_SERVER['HTTPS'])) $secure = true;
+			if(isset($_SERVER['HTTPS']) && strlen($_SERVER['HTTPS'])) $secure = true;
 
-			$server = '.';
-			if(isset($_SERVER['SERVER_NAME'])) $server .= $_SERVER['SERVER_NAME'];
-			elseif(isset($_SERVER['HTTP_HOST'])) $server .= $_SERVER['HTTP_HOST'];
+			$server = $_SERVER['HTTP_HOST'];
 
 			$expire = time() - 31556926;
 
@@ -105,11 +101,9 @@
 
 		static public function storageDelete($temporary, $specific = false) {
 			$secure = false;
-			if(isset($_SERVER['HTTPS'])) $secure = true;
+			if(isset($_SERVER['HTTPS']) && strlen($_SERVER['HTTPS'])) $secure = true;
 
-			$server = '.';
-			if(isset($_SERVER['SERVER_NAME'])) $server .= $_SERVER['SERVER_NAME'];
-			elseif(isset($_SERVER['HTTP_HOST'])) $server .= $_SERVER['HTTP_HOST'];
+			$server = $_SERVER['HTTP_HOST'];
 
 			$expire = time() - 31556926;
 
@@ -141,11 +135,9 @@
 			if($expire) $expire = time() + SESSION_COOKIE_EXPIRE_SECONDS;
 
 			$secure = false;
-			if(isset($_SERVER['HTTPS'])) $secure = true;
+			if(isset($_SERVER['HTTPS']) && strlen($_SERVER['HTTPS'])) $secure = true;
 
-			$server = '.';
-			if(isset($_SERVER['SERVER_NAME'])) $server .= $_SERVER['SERVER_NAME'];
-			elseif(isset($_SERVER['HTTP_HOST'])) $server .= $_SERVER['HTTP_HOST'];
+			$server = $_SERVER['HTTP_HOST'];
 
 			if($temporary) {
 				setcookie("cmid_storage_temporary[{$key}]", $value, 0, '/', $server, $secure, true);
