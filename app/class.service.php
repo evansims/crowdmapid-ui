@@ -84,6 +84,10 @@
 			return Service::apiCall("DELETE", "/user/:user_id/security/yubikey/");
 		}
 
+		public static function loginFacebook($return_trip, $appid, $secret, $scope) {
+			return Service::apiCall("GET", "/facebook/register/", array('return_trip' => $return_trip, 'fb_appid' => $appid, 'fb_secret' => $secret, 'fb_scope' => $scope));
+		}
+
 		public static function Admin() {
 			return false;
 		}
@@ -102,6 +106,8 @@
 					'api_secret' => CFG_API_KEY,
 					'api_version' => '2'
 				), $params);
+
+				$url = ltrim($url, '/');
 
 				if(strpos($url, ':') !== false && Sessions::$data) {
 					foreach(Sessions::$data as $skey => $sval) {
@@ -162,6 +168,11 @@
 
 				$raw = curl_exec($api);
 				$resp = json_decode($raw);
+
+				if(defined('CFG_DEBUG_LOGGING') && CFG_DEBUG_LOGGING == TRUE) {
+					file_put_contents('service.log', "-> " . CFG_API_ENDPOINT . $url . "\n\n<- " . $raw . "\n\n", FILE_APPEND);
+				}
+
 				return $resp;
 			}
 

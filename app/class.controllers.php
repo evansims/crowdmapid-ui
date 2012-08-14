@@ -382,7 +382,44 @@
 			Cleanup();
 		}
 
+		public static function LoginFacebook() {
+			if(isset($_REQUEST['user_id']) && isset($_REQUEST['session_id'])) {
+				// We're getting a response from Facebook.
+				Sessions::$data['user_id'] = substr($_REQUEST['user_id'], 0, 128);
+				Sessions::$data['session_id'] = substr($_REQUEST['session_id'], 0, 64);
+
+				if($session = Service::Session(Sessions::$data['user_id'], Sessions::$data['session_id'])) {
+					if($session->success) {
+						Sessions::SetCookie();
+					}
+				}
+
+				echo '<html><body><script>window.close();</script></body></html>';
+				exit;
+			} else {
+				if($response = Service::loginFacebook(CFG_SITE_URL . '/login/facebook/', CFG_FACEBOOK_APPID, CFG_FACEBOOK_SECRET, CFG_FACEBOOK_SCOPE)) {
+					if(isset($response->redirect)) {
+						header("Location: {$response->redirect}");
+					} else {
+						var_dump($response);
+					}
+				}
+			}
+			exit;
+		}
+
 		public static function Login() {
+			if(Breadcrumbs::Crumb(1) == 'facebook') {
+				Controllers::LoginFacebook();
+
+			} elseif(Breadcrumbs::Crumb(1) == 'twitter') {
+				//LoginTwitter();
+			} elseif(Breadcrumbs::Crumb(1) == 'github') {
+				//LoginGitHub();
+			} elseif(Breadcrumbs::Crumb(1) == 'adn') {
+				//LoginADN();
+			}
+
 			Views::Render("login");
 			Cleanup();
 		}

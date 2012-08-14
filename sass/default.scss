@@ -1,4 +1,5 @@
 //@import "normalize";
+@import "font-awesome";
 
 $color-background: #fff;
 $color-text: #000;
@@ -64,6 +65,44 @@ a, a:link, a:active, a:visited, a:hover {
 	cursor: pointer;
 }
 
+	a#facebookLogin {
+		margin: 0; margin-right: 5px;
+		padding: 6px 12px;
+		border: 1px solid #133783;
+		background: #3B5998;
+		color: #fff;
+		text-decoration: none;
+		text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+		border-radius: 3px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.33);
+
+		span { position: relative; top: 2px; font-size: 150%; margin-right: 6px; }
+
+		&:hover {
+			background-color: lighten(#3B5998, 10%);
+			border-color: lighten(#3B5998, 5%);
+		}
+	}
+
+	a#twitterLogin {
+		margin: 0; margin-right: 5px;
+		padding: 6px 12px;
+		border: 1px solid #4A87AD;
+		background: #5D96B9;
+		color: #fff;
+		text-decoration: none;
+		text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+		border-radius: 3px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+
+		span { position: relative; top: 2px; font-size: 150%; margin-right: 6px; }
+
+		&:hover {
+			background-color: lighten(#5D96B9, 10%);
+			border-color: lighten(#5D96B9, 5%);
+		}
+	}
+
 strong, b {
 	font-weight: bold;
 }
@@ -83,6 +122,12 @@ p {
 
 	strong {
 		background-color: #FCFBE3;
+	}
+
+	&.small {
+		font-size: $size-text-small;
+		line-height: $size-text-small;
+		color: $color-text-faded;
 	}
 
 	&.info_message {

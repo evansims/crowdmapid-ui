@@ -5,6 +5,7 @@ root.DEBUGGING             = true
 root.DEBUGGING_STACKTRACE  = false
 root.CACHE                 = {}
 root.TIMERS                = {}
+root.AUTH_DIALOG           = null
 
 # Load jQuery
 require ["jquery"], ->
@@ -40,6 +41,12 @@ require ["jquery"], ->
 				$(edit_account).submit()
 
 			return false
+
+	if facebook_login = $("a#facebookLogin")
+		$(facebook_login).on "click", (e) ->
+			root.facebookAuthorizationOpen("/login/facebook/")
+			e.preventDefault();
+			return false;
 
 	if account_register = $("form#account_register")
 		require ["password_strength"], ->
@@ -113,6 +120,32 @@ require ["jquery"], ->
 
 	# Import File I/O
 	require ["fileio"]
+
+	return
+
+root.facebookAuthorizationOpen = (url) ->
+	multiScreenLeft = if window.screenLeft != undefined then window.screenLeft else screen.left
+	multiScreenTop = if window.screenTop != undefined then window.screenTop else screen.top
+
+	left = ((screen.width/2) - 325) + multiScreenLeft;
+	top = ((screen.height/2) - 150) + multiScreenTop;
+
+	root.AUTH_DIALOG = window.open(url, "facebook_authorization", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=650,height=300,top="+top+",left="+left);
+	root.facebookAuthorizationWatch()
+
+	return
+
+root.facebookAuthorizationWatch = () ->
+	console.log(root.AUTH_DIALOG);
+
+	if root.AUTH_DIALOG && root.AUTH_DIALOG.closed
+		location.reload();
+	else
+		root.AUTH_DIALOG.focus();
+
+		callback = -> root.facebookAuthorizationWatch()
+
+		setTimeout callback, 1000
 
 	return
 

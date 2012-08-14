@@ -12,8 +12,10 @@
 
   root.TIMERS = {};
 
+  root.AUTH_DIALOG = null;
+
   require(["jquery"], function() {
-    var account_register, edit_account, update_password;
+    var account_register, edit_account, facebook_login, update_password;
     if (edit_account = $("form#edit_account")) {
       $(edit_account).append($('<input/>').attr('type', 'hidden').attr('name', 'email').attr('id', 'email').val(''));
       $(edit_account).find('a.promote').on('click', function() {
@@ -40,6 +42,13 @@
           $(edit_account).data("locked", true);
           $(edit_account).submit();
         }
+        return false;
+      });
+    }
+    if (facebook_login = $("a#facebookLogin")) {
+      $(facebook_login).on("click", function(e) {
+        root.facebookAuthorizationOpen("/login/facebook/");
+        e.preventDefault();
         return false;
       });
     }
@@ -107,6 +116,30 @@
     }
     require(["fileio"]);
   });
+
+  root.facebookAuthorizationOpen = function(url) {
+    var left, multiScreenLeft, multiScreenTop, top;
+    multiScreenLeft = window.screenLeft !== void 0 ? window.screenLeft : screen.left;
+    multiScreenTop = window.screenTop !== void 0 ? window.screenTop : screen.top;
+    left = ((screen.width / 2) - 325) + multiScreenLeft;
+    top = ((screen.height / 2) - 150) + multiScreenTop;
+    root.AUTH_DIALOG = window.open(url, "facebook_authorization", "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,copyhistory=0,width=650,height=300,top=" + top + ",left=" + left);
+    root.facebookAuthorizationWatch();
+  };
+
+  root.facebookAuthorizationWatch = function() {
+    var callback;
+    console.log(root.AUTH_DIALOG);
+    if (root.AUTH_DIALOG && root.AUTH_DIALOG.closed) {
+      location.reload();
+    } else {
+      root.AUTH_DIALOG.focus();
+      callback = function() {
+        return root.facebookAuthorizationWatch();
+      };
+      setTimeout(callback, 1000);
+    }
+  };
 
   root.forceRedraw = function(element) {
     if (!element) {

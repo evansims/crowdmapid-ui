@@ -1,7 +1,17 @@
 
 						<p><?php echo(CFG_SITE_LONG_DESCRIPTION); ?></p>
 
-						<h3>Log In</h3>
+						<h3>Login using third-party services</h3>
+
+						<p>
+							<a href="#" id="facebookLogin"><span class="icon-facebook"></span> Facebook</a>
+							<!-- <a href="#" id="twitterLogin"><span class="icon-twitter"></span> Twitter</a> -->
+						</p>
+
+						<p class="small">We'll never post to your stream without your permission.</p>
+
+
+						<h3>Login using traditional credentials</h3>
 
 						<?php if(Sessions::storageGet('login_message', true)): ?>
 						<p class="info_message"><?php echo(Sessions::storageGet('login_message', true)); ?></p>
