@@ -3,3 +3,4 @@ app/inc.config.php
 images/demo.png
 nohup.out
 .sass-cache
+*.log
