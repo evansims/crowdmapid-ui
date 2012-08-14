@@ -14,9 +14,9 @@
 			global $page;
 			$login_error = null;
 
-			if (isset($_COOKIE['cmid_user_id']) && isset($_COOKIE['cmid_session_id'])) { // && isset($_COOKIE['cmid_activity'])) {
-				Sessions::$data['user_id'] = Decrypt($_COOKIE['cmid_user_id'], $_SERVER['HTTP_USER_AGENT']);
-				Sessions::$data['session_id'] = Decrypt($_COOKIE['cmid_session_id'], $_SERVER['HTTP_USER_AGENT']);
+			if (isset($_COOKIE['cmid_user_id']) && isset($_COOKIE['cmid_session_id'])) {
+				Sessions::$data['user_id'] = Decrypt($_COOKIE['cmid_user_id'], CFG_ENCRYPTION_SALT);
+				Sessions::$data['session_id'] = Decrypt($_COOKIE['cmid_session_id'], CFG_ENCRYPTION_SALT);
 
 				if(strlen(Sessions::$data['user_id']) == 128 && strlen(Sessions::$data['session_id']) == 64) {
 					$session = Service::Session(Sessions::$data['user_id'], Sessions::$data['session_id']);
@@ -79,9 +79,8 @@
 
 			$server = $_SERVER['HTTP_HOST'];
 
-			setcookie('cmid_user_id', Encrypt(Sessions::$data['user_id'], $_SERVER['HTTP_USER_AGENT']), $expire, '/',  $server, $secure, true);
-			setcookie('cmid_session_id', Encrypt(Sessions::$data['session_id'], $_SERVER['HTTP_USER_AGENT']), $expire, '/', $server, $secure, true);
-			//setcookie('cmid_activity', Encrypt(time() + SESSION_REAUTHORIZE_SECONDS, $_SERVER['HTTP_USER_AGENT']), $expire, '/', $server, $secure, true);
+			setcookie('cmid_user_id', Encrypt(Sessions::$data['user_id'], CFG_ENCRYPTION_SALT), $expire, '/',  $server, $secure, true);
+			setcookie('cmid_session_id', Encrypt(Sessions::$data['session_id'], CFG_ENCRYPTION_SALT), $expire, '/', $server, $secure, true);
 		}
 
 		static public function ResetCookie() {

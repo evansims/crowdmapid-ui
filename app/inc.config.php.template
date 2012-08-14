@@ -8,6 +8,13 @@
 	define('CFG_SITE_DESCRIPTION', '');
 	define('CFG_SITE_LONG_DESCRIPTION', '');
 
+	define('CFG_FACEBOOK_APPID', '');
+	define('CFG_FACEBOOK_SECRET', '');
+	define('CFG_FACEBOOK_SCOPE', '');
+
+	define('CFG_ENCRYPTION_SALT', '');
+	define('CFG_DEBUG_LOGGING', FALSE);
+
 	$secretQuestions = array(
 		"What was your childhood nickname?",
 		"In what city did you meet your spouse/significant other?",
