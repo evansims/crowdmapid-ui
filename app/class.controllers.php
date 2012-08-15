@@ -101,30 +101,30 @@
 			if(isset($_POST['activity'])) {
 
 				if($_POST['activity'] == 'password') {
-					$password = (isset($_POST['password']) ? $_POST['password'] : null);
+					//$password = (isset($_POST['password']) ? $_POST['password'] : null);
 					$new_password = (isset($_POST['new_password']) ? $_POST['new_password'] : null);
 					$confirm_password = (isset($_POST['confirm_password']) ? $_POST['confirm_password'] : null);
 
-					if($password) {
+					//if($password) {
 						if($new_password && $confirm_password) {
 							if(strlen($new_password) > 5 && strlen($new_password) < 128) {
 								if($new_password === $confirm_password) {
 									if(strtoupper($new_password) !== $new_password) {
-										if($password_check = Service::checkPassword($password)) {
-											if($password_check->success) {
+										//if($password_check = Service::checkPassword($password)) {
+											//if($password_check->success) {
 												if($password_check = Service::changePassword($new_password)) {
 													$password_update_message = 'Your password has been updated.';
 												} else {
 													$password_update_error = $password_check->error;
 												}
 
-											} else {
-												$password_update_error = $password_check->error; //'The account password you provided was incorrect. Please try again.';
-											}
+											//} else {
+											//	$password_update_error = $password_check->error; //'The account password you provided was incorrect. Please try again.';
+											//}
 
-										} else {
-											$password_update_error = 'We encountered a technical problem. Please try again later.';
-										}
+										//} else {
+										//	$password_update_error = 'We encountered a technical problem. Please try again later.';
+										//}
 
 									} else {
 										$password_update_error = 'Your password appears to be fully capitalized. Do you have your caps lock on?';
@@ -142,9 +142,9 @@
 							$password_update_error = 'You must provide and confirm your new password choice.';
 						}
 
-					} else {
-						$password_update_error = 'You must provide your password.';
-					}
+					//} else {
+					//	$password_update_error = 'You must provide your password.';
+					//}
 
 				} elseif($_POST['activity'] == 'yubikey_remove') {
 					if($removal = Service::deleteYubikey()) {
@@ -272,6 +272,70 @@
 				'yubikey_edit_message'    => $yubikey_edit_message,
 				'yubikey_edit_error'      => $yubikey_edit_error
 
+			));
+			Cleanup();
+		}
+
+		public static function Phone() {
+			$user = &Service::$user;
+
+			$set_action_message  = null;
+			$set_action_error    = null;
+			$button_text         = 'Change or Remove';
+
+			if(isset($_POST['activity'])) {
+
+				if($_POST['activity'] == 'update_phone') {
+					if(isset($_POST['number'])) {
+						$_POST['number'] = substr(trim(str_replace(array('+', '-'), '', filter_var($_POST['number'], FILTER_SANITIZE_NUMBER_INT))), 0, 50);
+
+						if($_POST['number'] == $user->phone->number) {
+							if(isset($_POST['code'])) {
+								$_POST['code'] = substr(filter_var($_POST['code'], FILTER_SANITIZE_STRING), 0, 6);
+
+								if($ret = Service::confirmPhone($_POST['number'], $_POST['code'])) {
+									if(isset($ret->success) && $ret->success == true) {
+										$user->phone->confirmed = true;
+										$set_action_message = 'Your phone was linked successfully.';
+									} else {
+										$set_action_error = $ret->error;
+									}
+								}
+							}
+						} else {
+							if($ret = Service::setPhone($_POST['number'])) {
+								if(isset($ret->success) && $ret->success == true) {
+									$user->phone->number = $_POST['number'];
+
+									if(strlen($_POST['number'])) {
+										$set_action_message = 'We just sent you your confirmation code. Please enter it below.';
+										$button_text = 'Confirm';
+									} else {
+										$set_action_message = 'Your account is no longer linked to any phones.';
+									}
+
+								} else {
+									$set_action_error = $ret->error; // TODO CHECK FOR DUPLICATES!!
+								}
+							}
+						}
+					}
+				}
+
+			} else {
+				if(!$user->phone->number) {
+					$button_text = 'Send SMS';
+				}
+				if($user->phone->number && !$user->phone->confirmed) {
+					$button_text = 'Confirm';
+				}
+			}
+
+			Views::Render("phone", array(
+				'user'               => $user,
+				'set_action_message' => $set_action_message,
+				'set_action_error'   => $set_action_error,
+				'button_text'        => $button_text
 			));
 			Cleanup();
 		}

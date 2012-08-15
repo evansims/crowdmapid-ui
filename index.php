@@ -57,6 +57,8 @@
 			Controllers::Accounts();
 		} elseif($p == 'security') {
 			Controllers::Security();
+		} elseif($p == 'phone') {
+			Controllers::Phone();
 		} elseif($p == 'home') {
 			Controllers::Home();
 		}

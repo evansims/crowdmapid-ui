@@ -22,7 +22,7 @@
 										echo rtrim($emails, '<br />');
 									?>
 								</span>
-								<span class="links"><a href="<?php echo($site['url']); ?>/accounts">Edit</a></span>
+								<?php if(count($user->emails) > 1): ?><span class="links"><a href="<?php echo($site['url']); ?>/accounts">Edit</a></span><?php endif; ?>
 							</li>
 							<li class="editable" onclick="window.location = '<?php echo($site['url']); ?>/security'; return false;">
 								<span class="title">Password</span>

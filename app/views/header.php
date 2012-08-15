@@ -71,6 +71,7 @@
 
 						<li class="grouped <?php if(Breadcrumbs::Crumb(0) == 'accounts') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/accounts">Accounts</a></li>
 						<li class="<?php if(Breadcrumbs::Crumb(0) == 'security') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/security">Security</a></li>
+						<li class="<?php if(Breadcrumbs::Crumb(0) == 'phone') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/phone">Phone</a></li>
 
 						<?php /*
 						<li class="<?php if(Breadcrumbs::Crumb(0) == 'badges') echo('active'); ?>"><a href="<?php echo $site['url']; ?>/badges">Badges</a></li>

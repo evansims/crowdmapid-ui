@@ -72,6 +72,14 @@
 			return Service::apiCall("PUT", "/user/:user_id/challenge/answer/", array('answer' => $answer));
 		}
 
+		public static function setPhone($number) {
+			return Service::apiCall("POST", "/user/:user_id/phone/", array('phone' => $number));
+		}
+
+		public static function confirmPhone($number, $code) {
+			return Service::apiCall("POST", "/user/:user_id/phone/confirm/", array('phone' => $number, 'code' => $code));
+		}
+
 		public static function getYubikeyPair() {
 			return Service::apiCall("GET", "/user/:user_id/security/yubikey/");
 		}
@@ -95,6 +103,11 @@
 		static function apiCall($method, $url, $params = array()) {
 
 			$api = &Service::$api;
+
+			if(Sessions::$loggedin) {
+				$params['user_id'] = Sessions::$data['user_id'];
+				$params['session_id'] = Sessions::$data['session_id'];
+			}
 
 			if(!$api) {
 				$api = curl_init();

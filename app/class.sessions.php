@@ -23,10 +23,10 @@
 
 					if($session) {
 						if($session->success) {
+							Sessions::$loggedin = true;
 							Service::User(Sessions::$data['user_id']);
 
 							Sessions::SetCookie();
-							Sessions::$loggedin = true;
 							return true;
 						} else {
 							$page['errors']['login_error'] = $session->error;
@@ -45,10 +45,10 @@
 						Sessions::$data['user_id'] = $auth->user_id;
 						Sessions::$data['session_id'] = $auth->session_id;
 
+						Sessions::$loggedin = true;
 						Service::User(Sessions::$data['user_id']);
 
 						Sessions::SetCookie();
-						Sessions::$loggedin = true;
 						return true;
 					} else {
 						$page['errors']['login_error'] = $auth->error;
