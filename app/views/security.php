@@ -20,11 +20,6 @@
 							<input type="hidden" id="activity" name="activity" value="password" />
 
 							<div class="form-row">
-								<label for="password">Current Password:</label>
-								<div class="text"><input type="password" id="password" name="password" placeholder="" value="" onclick="this.focus(); this.select(); return false;" /></div>
-							</div>
-
-							<div class="form-row">
 								<label for="new_password">New Password:</label>
 								<div class="text"><input type="password" id="new_password" name="new_password" placeholder="" value="" onclick="this.focus(); this.select(); return false;" /></div>
 							</div>
