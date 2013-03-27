@@ -1,6 +1,7 @@
 
 						<p><?php echo(CFG_SITE_LONG_DESCRIPTION); ?></p>
 
+<?php /*
 						<h3>Login using third-party services</h3>
 
 						<p>
@@ -12,6 +13,7 @@
 
 
 						<h3>Login using traditional credentials</h3>
+*/ ?>
 
 						<?php if(Sessions::storageGet('login_message', true)): ?>
 						<p class="info_message"><?php echo(Sessions::storageGet('login_message', true)); ?></p>
