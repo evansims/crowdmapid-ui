@@ -11,7 +11,7 @@
 		}
 
 		public static function Register($email, $password) {
-			return Service::apiCall("POST", "/user/{$user_id}", array('email' => $email, 'password' => $password));
+			return Service::apiCall("POST", "/user", array('email' => $email, 'password' => $password));
 		}
 
 		public static function Login($user_id, $password) {
