@@ -114,8 +114,10 @@
 											//if($password_check->success) {
 												if($password_check = Service::changePassword($new_password)) {
 													$password_update_message = 'Your password has been updated.';
-												} else {
+												} elseif(isset($password_check->error))
 													$password_update_error = $password_check->error;
+												} else {
+													$password_update_error = 'We encountered a technical problem. Please try again later.';
 												}
 
 											//} else {
